@@ -32,7 +32,9 @@ jobs:
         run: |
           cd project
           gradle assembleDebug
-
+      - name: Fix Java source
+        run: |
+          sed -i 's/static class GameView/class GameView/' project/app/src/main/java/com/freza/openworld/MainActivity.java
       - uses: actions/upload-artifact@v4
         with:
           name: FREZA-APK
